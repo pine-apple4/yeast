@@ -32,7 +32,7 @@ button:disabled{opacity:.45;cursor:default}
 #toast.on{opacity:1;transform:translate(-50%,0)}
 #benchScroll{overflow:auto;-webkit-overflow-scrolling:touch}
 #benchSizer{position:relative;margin:0 auto}
-#bench{position:absolute;left:0;top:0;width:760px;height:720px;transform-origin:0 0;user-select:none;-webkit-user-select:none}
+#bench{position:absolute;left:0;top:0;width:760px;height:652px;transform-origin:0 0;user-select:none;-webkit-user-select:none}
 .item{position:absolute;touch-action:none;cursor:grab}
 .item.dragging{cursor:grabbing;z-index:1000 !important;filter:none}
 .item.anim{transition:left .35s ease,top .35s ease}
@@ -112,7 +112,7 @@ const LV=[0,0.2,0.4,0.6,0.8,1];
 const COND=[[1,0],[1,.2],[1,.4],[1,.6],[1,.8],[1,1],[.8,1],[.6,1],[.4,1],[.2,1],[0,1]];
 const GB=[1,.8,.6,.4,.2,0];   // 포도당 비커 (50 mL 비커)
 const YB=[1,.8,.6,.4,.2,0];   // 효모 비커 (100 mL 비커)
-const NF=1, NB=6, BW=760, BH=720;
+const NF=1, NB=6, BW=760, BH=652;
 const pct=v=>(v===0?"0":String(v))+"%";
 const FK=1.5, SK=1.5;  // 플라스크·센서 그림 배율
 const TICK=200, DT=0.2, MAXK=2*24*3600*5;
@@ -136,9 +136,9 @@ function freshState(){
     ui.yb.push({vol:50,s:0,end:0,resid:0});
   }
   ui.flasks.push({g:0,y:0,V:0});
-  ui.pos.f0={x:150,y:478};
-  ui.pos.rod={x:500,y:516};
-  ui.pos.sensor={x:594,y:484};
+  ui.pos.f0={x:150,y:394};
+  ui.pos.rod={x:500,y:432};
+  ui.pos.sensor={x:594,y:400};
   const hc=hashCond();
   return {v:2,cond:hc!==null?hc:Math.floor(Math.random()*11),seed,created:Date.now(),spd:{rt:Date.now(),vt:Date.now(),x:1},roomBase:760+r()*560,roomPh:r()*6.28,
     ui,events:[],meas:{startK:null,stopK:null}};
@@ -248,16 +248,16 @@ function benchBackground(){
   <rect width="${BW}" height="${BH}" fill="#eef2f4"/>
   <text x="18" y="22" font-size="14" fill="#5f6f7a">포도당 수용액</text>
   <text x="18" y="162" font-size="14" fill="#5f6f7a">효모액</text>
-  <rect x="26" y="300" width="428" height="404" rx="3" fill="#f6f8f9" stroke="#d6dde2"/>
+  <rect x="26" y="300" width="708" height="336" rx="3" fill="#f6f8f9" stroke="#d6dde2"/>
   <text x="42" y="330" font-size="14" fill="#7a8892">작업 공간</text>
-  <rect x="480" y="640" width="50" height="7" rx="3" fill="#8f9ca6"/>
-  <rect x="502" y="512" width="5" height="130" rx="2" fill="#a9b5bd"/>
-  <rect x="488" y="512" width="34" height="5" rx="2.5" fill="#8f9ca6"/>
-  <circle cx="491" cy="514" r="3" fill="#7c8993"/><circle cx="519" cy="514" r="3" fill="#7c8993"/>
-  <text x="470" y="675" font-size="14" fill="#7a8892">유리 막대</text>
-  <rect x="592" y="677" width="64" height="9" rx="4" fill="#8f9ca6"/>
-  <rect x="606" y="669" width="36" height="9" rx="3" fill="#a9b5bd"/>
-  <text x="580" y="708" font-size="14" fill="#7a8892">센서 거치대</text>
+  <rect x="480" y="556" width="50" height="7" rx="3" fill="#8f9ca6"/>
+  <rect x="502" y="428" width="5" height="130" rx="2" fill="#a9b5bd"/>
+  <rect x="488" y="428" width="34" height="5" rx="2.5" fill="#8f9ca6"/>
+  <circle cx="491" cy="430" r="3" fill="#7c8993"/><circle cx="519" cy="430" r="3" fill="#7c8993"/>
+  <text x="470" y="591" font-size="14" fill="#7a8892">유리 막대</text>
+  <rect x="592" y="593" width="64" height="9" rx="4" fill="#8f9ca6"/>
+  <rect x="606" y="585" width="36" height="9" rx="3" fill="#a9b5bd"/>
+  <text x="580" y="624" font-size="14" fill="#7a8892">센서 거치대</text>
   </svg>`;
 }
 /* 250 mL 삼각플라스크 (가로 84, 세로 124) */
